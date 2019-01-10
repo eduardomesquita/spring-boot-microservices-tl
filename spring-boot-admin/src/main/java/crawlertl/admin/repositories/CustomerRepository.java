@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
 
 public interface CustomerRepository extends ReactiveCrudRepository<Customer, Long> {
 
-    @Query("select id, firstname, lastname from customer c where c.lastame = $1")
+    @Query("select id, firstname, lastname from customer c where c.lastname = $1")
     Flux<Customer> findByLastnameLike(String lastname);
 
 }

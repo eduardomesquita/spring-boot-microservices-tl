@@ -26,12 +26,16 @@ public class DBConfig {
     @Value("${datasource.password}")
     private String password;
 
+    @Value("${datasource.port}")
+    private int port;
+
     @Bean
     PostgresqlConnectionFactory connectionFactory() {
         return new PostgresqlConnectionFactory(
                 PostgresqlConnectionConfiguration.builder()
                         .host(host)
                         .database(database)
+                        .port(port)
                         .username(username)
                         .password(password)
                         .build());
